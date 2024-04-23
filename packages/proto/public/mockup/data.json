@@ -1,0 +1,863 @@
+
+[
+    {
+      "id": "bd6b394d-71a5-4238-87c4-3b7ee5413ab2",
+      "type": "Single Family",
+      "location": "4794 Stoltenberg Causeway",
+      "price": "$164741",
+      "beds": 2,
+      "baths": 1,
+      "livingArea": "2720 sq ft",
+      "lotArea": "5551 sq ft",
+      "agent": {
+        "name": "Ms. Rex Greenfelder",
+        "phone": "319-702-8233"
+      }
+    },
+    {
+      "id": "c5829b46-8d3f-4b85-8178-2cf5bbd97336",
+      "type": "Multi-Family",
+      "location": "133 Nader Spurs",
+      "price": "$664482",
+      "units": [
+        {
+          "location": "375 Chelsie Meadows",
+          "price": "$126146",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 765
+        },
+        {
+          "location": "460 Edgardo Harbor",
+          "price": "$113756",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 1137
+        }
+      ],
+      "totalLivingArea": "1902 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Ray Kirlin",
+        "phone": "341.206.2997 x0538"
+      }
+    },
+    {
+      "id": "b45169c2-8db8-4e63-9bd9-1dfce1e052c2",
+      "type": "Single Family",
+      "location": "3095 Murray Groves",
+      "price": "$190979",
+      "beds": 2,
+      "baths": 3,
+      "livingArea": "2748 sq ft",
+      "lotArea": "10804 sq ft",
+      "agent": {
+        "name": "Arturo Greenfelder",
+        "phone": "447-301-7084 x12233"
+      }
+    },
+    {
+      "id": "2159b186-85a4-4556-9a31-8266c1b23839",
+      "type": "Multi-Family",
+      "location": "909 Boyle Ranch",
+      "price": "$304358",
+      "units": [
+        {
+          "location": "4682 Rylee Stream",
+          "price": "$253690",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 1370
+        },
+        {
+          "location": "02896 Stanton Center",
+          "price": "$147385",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 525
+        }
+      ],
+      "totalLivingArea": "1895 sq ft",
+      "totalBeds": 5,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Jean Jacobi",
+        "phone": "773.533.8370"
+      }
+    },
+    {
+      "id": "ee26939a-618b-45f2-9e0a-7fb10208a9e9",
+      "type": "Single Family",
+      "location": "982 Feil Greens",
+      "price": "$165963",
+      "beds": 4,
+      "baths": 3,
+      "livingArea": "3137 sq ft",
+      "lotArea": "7049 sq ft",
+      "agent": {
+        "name": "Jenna Fahey DDS",
+        "phone": "609-702-9460"
+      }
+    },
+    {
+      "id": "9e41f0b7-3572-44f1-a9e7-02f6fa8a99e0",
+      "type": "Multi-Family",
+      "location": "63136 Nathanael Crest",
+      "price": "$476968",
+      "units": [
+        {
+          "location": "6581 Claudie Overpass",
+          "price": "$231778",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 584
+        },
+        {
+          "location": "582 Ruecker Spurs",
+          "price": "$122104",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 718
+        }
+      ],
+      "totalLivingArea": "1302 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Joanna Osinski",
+        "phone": "(923) 768-1214 x40672"
+      }
+    },
+    {
+      "id": "bf2e245a-b22d-42fc-bc86-d35210d73660",
+      "type": "Single Family",
+      "location": "41493 Luettgen Views",
+      "price": "$146004",
+      "beds": 5,
+      "baths": 1,
+      "livingArea": "2953 sq ft",
+      "lotArea": "7576 sq ft",
+      "agent": {
+        "name": "Sabrina Hodkiewicz",
+        "phone": "572-435-0763"
+      }
+    },
+    {
+      "id": "a963e129-6f57-4117-bd94-1139aeadb5ec",
+      "type": "Multi-Family",
+      "location": "25438 Willms Bypass",
+      "price": "$285825",
+      "units": [
+        {
+          "location": "736 Vandervort Mill",
+          "price": "$238530",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 1353
+        },
+        {
+          "location": "542 Wisozk Shore",
+          "price": "$283179",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 605
+        }
+      ],
+      "totalLivingArea": "1958 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Bobbie Jenkins",
+        "phone": "(498) 478-5522 x15978"
+      }
+    },
+    {
+      "id": "a7fe6b31-16e2-4aef-9507-52a2d23c7e2a",
+      "type": "Single Family",
+      "location": "49282 Elizabeth Villages",
+      "price": "$221705",
+      "beds": 5,
+      "baths": 3,
+      "livingArea": "3392 sq ft",
+      "lotArea": "8542 sq ft",
+      "agent": {
+        "name": "Miss Jason Jast",
+        "phone": "1-326-312-9270 x090"
+      }
+    },
+    {
+      "id": "c7c9e12c-1b1a-4a9b-ad5e-5c1a343a1e4c",
+      "type": "Multi-Family",
+      "location": "044 Rolando Ville",
+      "price": "$572803",
+      "units": [
+        {
+          "location": "3316 Sofia Ports",
+          "price": "$206612",
+          "beds": 3,
+          "baths": 1,
+          "unitArea": 1337
+        },
+        {
+          "location": "1621 Rath Track",
+          "price": "$258804",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 1057
+        }
+      ],
+      "totalLivingArea": "2394 sq ft",
+      "totalBeds": 6,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Mrs. Dana Simonis",
+        "phone": "1-605-934-5066 x024"
+      }
+    },
+    {
+      "id": "a8d94068-9d6f-4325-aef8-ba1a41f849a4",
+      "type": "Single Family",
+      "location": "900 Hartmann Path",
+      "price": "$398341",
+      "beds": 2,
+      "baths": 3,
+      "livingArea": "3299 sq ft",
+      "lotArea": "9473 sq ft",
+      "agent": {
+        "name": "Glen Wiegand",
+        "phone": "(893) 670-5318 x0873"
+      }
+    },
+    {
+      "id": "23882eaa-4e5d-45d7-9368-7f41204dfd81",
+      "type": "Multi-Family",
+      "location": "5213 Kellen Divide",
+      "price": "$556837",
+      "units": [
+        {
+          "location": "6547 Leslie Manor",
+          "price": "$221631",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 558
+        },
+        {
+          "location": "082 Witting Parkways",
+          "price": "$247638",
+          "beds": 3,
+          "baths": 1,
+          "unitArea": 741
+        }
+      ],
+      "totalLivingArea": "1299 sq ft",
+      "totalBeds": 4,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Russell Turcotte Jr.",
+        "phone": "1-888-519-5677"
+      }
+    },
+    {
+      "id": "cd3240cf-afe7-48a7-8d6c-d0a6abcad6e7",
+      "type": "Single Family",
+      "location": "3627 Cassie Street",
+      "price": "$196215",
+      "beds": 2,
+      "baths": 2,
+      "livingArea": "2667 sq ft",
+      "lotArea": "5081 sq ft",
+      "agent": {
+        "name": "Hazel Raynor",
+        "phone": "740.824.7801 x2037"
+      }
+    },
+    {
+      "id": "59f17f74-f85f-4753-9a05-d7ab85ff1960",
+      "type": "Multi-Family",
+      "location": "8558 Elvis Mount",
+      "price": "$569401",
+      "units": [
+        {
+          "location": "6841 Upton Heights",
+          "price": "$195264",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 1437
+        },
+        {
+          "location": "9928 Martina Village",
+          "price": "$118219",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 572
+        }
+      ],
+      "totalLivingArea": "2009 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Kristen Bayer",
+        "phone": "1-429-702-7653"
+      }
+    },
+    {
+      "id": "5958da81-1acd-4e4f-88c2-9a0dc41c8689",
+      "type": "Single Family",
+      "location": "67310 Precious Stravenue",
+      "price": "$176593",
+      "beds": 3,
+      "baths": 1,
+      "livingArea": "2067 sq ft",
+      "lotArea": "13856 sq ft",
+      "agent": {
+        "name": "Dr. Dana Weber",
+        "phone": "(511) 435-1768 x946"
+      }
+    },
+    {
+      "id": "4f0584e7-6f64-4612-80cf-8eb56500f8df",
+      "type": "Multi-Family",
+      "location": "346 Ondricka Hills",
+      "price": "$410503",
+      "units": [
+        {
+          "location": "19548 Herzog Stream",
+          "price": "$181094",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 1442
+        },
+        {
+          "location": "6133 Olga Motorway",
+          "price": "$173857",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 1194
+        }
+      ],
+      "totalLivingArea": "2636 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Mr. Casey Beer",
+        "phone": "1-795-440-2715"
+      }
+    },
+    {
+      "id": "8bb730df-e074-4e73-a9f1-d808e65a90b3",
+      "type": "Single Family",
+      "location": "034 Brown Club",
+      "price": "$281610",
+      "beds": 3,
+      "baths": 2,
+      "livingArea": "3416 sq ft",
+      "lotArea": "6623 sq ft",
+      "agent": {
+        "name": "Randal Corkery",
+        "phone": "1-936-742-3507 x551"
+      }
+    },
+    {
+      "id": "cb018ea6-2a91-428c-b074-6502af7fa786",
+      "type": "Multi-Family",
+      "location": "10222 Eudora Divide",
+      "price": "$454478",
+      "units": [
+        {
+          "location": "8467 Valentin Corners",
+          "price": "$234857",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 1451
+        },
+        {
+          "location": "577 Kessler Valley",
+          "price": "$254834",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 648
+        }
+      ],
+      "totalLivingArea": "2099 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Nettie King",
+        "phone": "(621) 493-9953 x63607"
+      }
+    },
+    {
+      "id": "8cc81532-49c5-4c70-a8b7-3581c91aadcb",
+      "type": "Single Family",
+      "location": "19069 Katarina Crossroad",
+      "price": "$419022",
+      "beds": 2,
+      "baths": 3,
+      "livingArea": "2995 sq ft",
+      "lotArea": "6411 sq ft",
+      "agent": {
+        "name": "Dewey Rippin",
+        "phone": "(465) 548-0406"
+      }
+    },
+    {
+      "id": "d5d83d45-2de0-4ab6-a996-fba2e02d77a1",
+      "type": "Multi-Family",
+      "location": "40648 Cortney Knolls",
+      "price": "$246157",
+      "units": [
+        {
+          "location": "64100 Boyle Junctions",
+          "price": "$286771",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 592
+        },
+        {
+          "location": "021 Brakus Isle",
+          "price": "$247280",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 770
+        }
+      ],
+      "totalLivingArea": "1362 sq ft",
+      "totalBeds": 2,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Latoya Cole",
+        "phone": "960-504-7277 x222"
+      }
+    },
+    {
+      "id": "4c4c8309-9225-4c69-9170-6df6818c5167",
+      "type": "Single Family",
+      "location": "1120 Taryn Forks",
+      "price": "$180921",
+      "beds": 2,
+      "baths": 3,
+      "livingArea": "1910 sq ft",
+      "lotArea": "11495 sq ft",
+      "agent": {
+        "name": "Margarita Champlin",
+        "phone": "1-977-666-9999 x960"
+      }
+    },
+    {
+      "id": "57ee017c-c558-44ef-8d08-2059ec267c9f",
+      "type": "Multi-Family",
+      "location": "578 Kshlerin Roads",
+      "price": "$510589",
+      "units": [
+        {
+          "location": "613 Becker Trail",
+          "price": "$125586",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 743
+        },
+        {
+          "location": "9130 Goodwin Fort",
+          "price": "$152521",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 1089
+        }
+      ],
+      "totalLivingArea": "1832 sq ft",
+      "totalBeds": 2,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Jermaine Halvorson DDS",
+        "phone": "592-827-1956 x16133"
+      }
+    },
+    {
+      "id": "1c106e48-8980-46a0-87d9-8ba505ed624b",
+      "type": "Single Family",
+      "location": "4222 Vita Spurs",
+      "price": "$184556",
+      "beds": 4,
+      "baths": 3,
+      "livingArea": "1979 sq ft",
+      "lotArea": "10052 sq ft",
+      "agent": {
+        "name": "Noel Will",
+        "phone": "797-925-0395 x7780"
+      }
+    },
+    {
+      "id": "bac7536c-7e32-41b5-8958-76dad2f121e0",
+      "type": "Multi-Family",
+      "location": "1673 Hilll Port",
+      "price": "$230325",
+      "units": [
+        {
+          "location": "58633 Laney Ports",
+          "price": "$254464",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 1377
+        },
+        {
+          "location": "8254 Feeney Prairie",
+          "price": "$255815",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 571
+        }
+      ],
+      "totalLivingArea": "1948 sq ft",
+      "totalBeds": 6,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Irvin Cruickshank",
+        "phone": "808.897.6854"
+      }
+    },
+    {
+      "id": "c4817ed0-88a3-4037-9ac8-0418385403f5",
+      "type": "Single Family",
+      "location": "65581 Franecki Brooks",
+      "price": "$133005",
+      "beds": 5,
+      "baths": 1,
+      "livingArea": "2361 sq ft",
+      "lotArea": "5383 sq ft",
+      "agent": {
+        "name": "Percy Franecki",
+        "phone": "1-670-411-4570 x29176"
+      }
+    },
+    {
+      "id": "29541b53-c323-4744-b53e-215a39d6e515",
+      "type": "Multi-Family",
+      "location": "896 Jeremy Road",
+      "price": "$476097",
+      "units": [
+        {
+          "location": "4297 Elmore Creek",
+          "price": "$253960",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 1265
+        },
+        {
+          "location": "942 Cummings Walks",
+          "price": "$277295",
+          "beds": 3,
+          "baths": 1,
+          "unitArea": 567
+        }
+      ],
+      "totalLivingArea": "1832 sq ft",
+      "totalBeds": 5,
+      "totalBaths": 2,
+      "agent": {
+        "name": "Bridget Becker",
+        "phone": "(482) 784-8707"
+      }
+    },
+    {
+      "id": "93d6693b-bf7e-4ac7-9a52-cb4936b6aae1",
+      "type": "Single Family",
+      "location": "67573 Cruickshank Fields",
+      "price": "$482568",
+      "beds": 5,
+      "baths": 2,
+      "livingArea": "3090 sq ft",
+      "lotArea": "14749 sq ft",
+      "agent": {
+        "name": "Elijah Balistreri",
+        "phone": "345-354-8995 x32451"
+      }
+    },
+    {
+      "id": "fb77aa27-b002-4d81-bf76-d2f369408cae",
+      "type": "Multi-Family",
+      "location": "06213 Hunter Loaf",
+      "price": "$318319",
+      "units": [
+        {
+          "location": "8077 Yadira Valleys",
+          "price": "$256540",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 1373
+        },
+        {
+          "location": "77780 Jalon Rapids",
+          "price": "$255564",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 826
+        }
+      ],
+      "totalLivingArea": "2199 sq ft",
+      "totalBeds": 4,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Pat Miller",
+        "phone": "995-832-3410 x4490"
+      }
+    },
+    {
+      "id": "fc170941-eef2-4ca6-809e-be68a69d9e2b",
+      "type": "Single Family",
+      "location": "9412 Kristian Union",
+      "price": "$287619",
+      "beds": 3,
+      "baths": 3,
+      "livingArea": "2062 sq ft",
+      "lotArea": "13708 sq ft",
+      "agent": {
+        "name": "Wesley Dickens",
+        "phone": "588-767-8855 x56161"
+      }
+    },
+    {
+      "id": "5a2dace2-bb1a-4729-af97-09cef554d899",
+      "type": "Multi-Family",
+      "location": "646 Leffler Drive",
+      "price": "$570227",
+      "units": [
+        {
+          "location": "50991 Emmy Unions",
+          "price": "$228933",
+          "beds": 3,
+          "baths": 1,
+          "unitArea": 953
+        },
+        {
+          "location": "379 Liliana Neck",
+          "price": "$127973",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 529
+        }
+      ],
+      "totalLivingArea": "1482 sq ft",
+      "totalBeds": 5,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Jesse Morissette I",
+        "phone": "807.531.6776 x22710"
+      }
+    },
+    {
+      "id": "5d734f24-3675-4e57-bd96-8a0b0944a25e",
+      "type": "Single Family",
+      "location": "76211 Jackeline Road",
+      "price": "$232295",
+      "beds": 4,
+      "baths": 2,
+      "livingArea": "2962 sq ft",
+      "lotArea": "7725 sq ft",
+      "agent": {
+        "name": "Carol Stroman",
+        "phone": "1-389-497-8838 x957"
+      }
+    },
+    {
+      "id": "3c976d59-071a-4c56-81f9-70eac43716ec",
+      "type": "Multi-Family",
+      "location": "46925 Michel Ramp",
+      "price": "$264407",
+      "units": [
+        {
+          "location": "751 Crist Burg",
+          "price": "$165249",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 1352
+        },
+        {
+          "location": "128 Lilla Court",
+          "price": "$234019",
+          "beds": 2,
+          "baths": 2,
+          "unitArea": 1015
+        }
+      ],
+      "totalLivingArea": "2367 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Taylor Prosacco",
+        "phone": "997-290-6992 x7823"
+      }
+    },
+    {
+      "id": "dd9da921-37ff-4897-a46a-30220f02abf0",
+      "type": "Single Family",
+      "location": "1047 Maegan Fields",
+      "price": "$181053",
+      "beds": 5,
+      "baths": 3,
+      "livingArea": "3149 sq ft",
+      "lotArea": "10657 sq ft",
+      "agent": {
+        "name": "Carmen Medhurst",
+        "phone": "278-297-0634 x1631"
+      }
+    },
+    {
+      "id": "987453b7-ca2a-410b-b1dd-daf27d1c324b",
+      "type": "Multi-Family",
+      "location": "19995 Von Branch",
+      "price": "$603178",
+      "units": [
+        {
+          "location": "02840 Constantin Village",
+          "price": "$295952",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 731
+        },
+        {
+          "location": "874 Turner Mission",
+          "price": "$107797",
+          "beds": 2,
+          "baths": 1,
+          "unitArea": 662
+        }
+      ],
+      "totalLivingArea": "1393 sq ft",
+      "totalBeds": 3,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Miss Seth Klocko",
+        "phone": "1-228-809-5137"
+      }
+    },
+    {
+      "id": "4937ecd0-a3f2-4fad-9fa0-0bbeea919e00",
+      "type": "Single Family",
+      "location": "1853 VonRueden Overpass",
+      "price": "$113465",
+      "beds": 5,
+      "baths": 1,
+      "livingArea": "1771 sq ft",
+      "lotArea": "8740 sq ft",
+      "agent": {
+        "name": "Ms. Delia Jones",
+        "phone": "1-833-663-8014 x442"
+      }
+    },
+    {
+      "id": "f053fefe-66ec-4c7d-a3ef-70aac758fac3",
+      "type": "Multi-Family",
+      "location": "00145 Medhurst Inlet",
+      "price": "$673160",
+      "units": [
+        {
+          "location": "9916 Emelia Roads",
+          "price": "$131451",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 970
+        },
+        {
+          "location": "1588 Cassin Park",
+          "price": "$196580",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 1334
+        }
+      ],
+      "totalLivingArea": "2304 sq ft",
+      "totalBeds": 4,
+      "totalBaths": 4,
+      "agent": {
+        "name": "Sheryl Lowe PhD",
+        "phone": "1-720-519-6149"
+      }
+    },
+    {
+      "id": "f62a4cf6-dd8c-4e23-a7fc-1bc557e26101",
+      "type": "Single Family",
+      "location": "5406 Sim Loaf",
+      "price": "$304290",
+      "beds": 5,
+      "baths": 3,
+      "livingArea": "3209 sq ft",
+      "lotArea": "13412 sq ft",
+      "agent": {
+        "name": "Tami Franecki",
+        "phone": "946.733.7244 x13393"
+      }
+    },
+    {
+      "id": "0eabea88-1d09-477a-9884-f45341c326e2",
+      "type": "Multi-Family",
+      "location": "3190 Torphy Lock",
+      "price": "$264162",
+      "units": [
+        {
+          "location": "79485 Larson Plaza",
+          "price": "$250227",
+          "beds": 1,
+          "baths": 2,
+          "unitArea": 1175
+        },
+        {
+          "location": "60638 Schroeder Spur",
+          "price": "$200662",
+          "beds": 1,
+          "baths": 1,
+          "unitArea": 1098
+        }
+      ],
+      "totalLivingArea": "2273 sq ft",
+      "totalBeds": 2,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Marjorie Gibson",
+        "phone": "886-505-2343 x245"
+      }
+    },
+    {
+      "id": "7c25305c-ec11-4699-8862-b8d9c082cd20",
+      "type": "Single Family",
+      "location": "844 Letitia Extension",
+      "price": "$414343",
+      "beds": 2,
+      "baths": 1,
+      "livingArea": "3024 sq ft",
+      "lotArea": "12710 sq ft",
+      "agent": {
+        "name": "Meghan Luettgen",
+        "phone": "1-877-938-3909"
+      }
+    },
+    {
+      "id": "5883c164-22a1-4b7e-8ea6-52b69a7c4acc",
+      "type": "Multi-Family",
+      "location": "03613 Gaylord Plain",
+      "price": "$397445",
+      "units": [
+        {
+          "location": "432 Quitzon Circle",
+          "price": "$160666",
+          "beds": 3,
+          "baths": 2,
+          "unitArea": 1197
+        },
+        {
+          "location": "9978 Kaley Springs",
+          "price": "$241657",
+          "beds": 3,
+          "baths": 1,
+          "unitArea": 1214
+        }
+      ],
+      "totalLivingArea": "2411 sq ft",
+      "totalBeds": 6,
+      "totalBaths": 3,
+      "agent": {
+        "name": "Stanley Hermiston",
+        "phone": "961-699-4784 x9803"
+      }
+    }
+  ]

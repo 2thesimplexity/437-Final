@@ -1,0 +1,18 @@
+:root {
+  --color-background-page: #f0f0f0;
+  --color-background-header: rgb(0, 106, 255);
+  --color-text-default: #333333;
+  --color-text-header: #ffffff;
+  --color-accent: #ff5722;
+
+  --font-family-body: 'Roboto', sans-serif;
+  --font-family-header: 'Open Sans', sans-serif;
+
+  --size-type-body: 1rem;
+  --size-type-header: 2rem;
+  --size-type-subheader: 1.5rem;
+
+  --spacing-small: 0.5em;
+  --spacing-medium: 1em;
+  --spacing-large: 2em;
+}

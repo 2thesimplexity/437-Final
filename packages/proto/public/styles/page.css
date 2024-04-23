@@ -1,0 +1,63 @@
+body {
+    background-color: var(--color-background-page);
+    color: var(--color-text-default);
+    font-family: var(--font-family-body);
+    font-size: var(--size-type-body);
+  }
+  
+  a {
+    color: var(--color-accent);
+  }
+  
+  section {
+    margin: var(--spacing-medium) 0;
+  }
+  
+  section h2 {
+    font-family: var(--font-family-header);
+    color: var(--color-background-header);
+    font-size: var(--size-type-subheader);
+  }
+  
+  .card {
+    background-color: var(--color-background-page);
+    border: 1px solid var(--color-accent);
+    padding: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    font-family: var(--font-family-header);
+    font-size: var(--size-type-subheader);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .card p {
+    font-family: var(--font-family-body);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .unit-list {
+    display: grid;
+    gap: var(--spacing-medium);
+  }
+  
+  .unit {
+    background-color: var(--color-background-page);
+    border: 1px solid var(--color-accent);
+    padding: var(--spacing-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .unit h2 {
+    font-family: var(--font-family-header);
+    font-size: var(--size-type-subheader);
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .unit p {
+    font-family: var(--font-family-body);
+    margin-bottom: var(--spacing-small);
+  }
+  
