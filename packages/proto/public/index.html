@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <script src="/scripts/properties.js" defer></script>
   <script src="/scripts/darkmode.js" defer></script>
+  <script type="module" src="/scripts/dark-mode-toggle.js"></script>
   <title>Real Estate Listings</title>
 </head>
 <body>
@@ -16,11 +17,8 @@
       <div class="app-name">Real Estate Listings</div>
     </div>
     <div class="user-info">
-      <span class="profile-icon">👤</span> Bruce Wayne  
-      <label>
-        <input type="checkbox" id="dark-mode-toggle" autocomplete="off" />
-        Dark mode
-      </label>
+      <span class="profile-icon">👤</span> John Doe
+      <dark-mode-toggle></dark-mode-toggle>
     </div>
   </header>
   <main class="main-content">
