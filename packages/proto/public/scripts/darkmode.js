@@ -2,7 +2,6 @@ class DarkModeToggle extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-
         // Create the template for the component
         const template = document.createElement('template');
         template.innerHTML = `
@@ -22,7 +21,6 @@ class DarkModeToggle extends HTMLElement {
         </label>
         `;
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
         // Bind event listener to the checkbox
         this.checkbox = this.shadowRoot.getElementById('dark-mode-checkbox');
         this.checkbox.addEventListener('change', this.toggleDarkMode.bind(this));
