@@ -5,9 +5,9 @@
   <link rel="stylesheet" href="/styles/tokens.css" />
   <link rel="stylesheet" href="/styles/page.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/table.css" />
   <script src="/scripts/properties.js" defer></script>
   <script src="/scripts/darkmode.js" defer></script>
-  <script type="module" src="/scripts/dark-mode-toggle.js"></script>
   <title>Real Estate Listings</title>
 </head>
 <body>
@@ -24,27 +24,27 @@
   <main class="main-content">
     <section class="content">
       <h1>Welcome to Real Estate Listings</h1>
-      <h2 class="toggle" onclick="toggleList('single-family-list')">
-        Single Family Homes <span class="arrow">&#9660;</span>
-      </h2>
-      <nav class="nav">
-        <ul id="single-family-list"></ul>
-      </nav>
-      <h2 class="toggle" onclick="toggleList('multi-family-list')">
-        Multi-Family Homes <span class="arrow">&#9660;</span>
-      </h2>
-      <nav class="nav">
-        <ul id="multi-family-list"></ul>
-      </nav>
+      <div class="table-container">
+        <input type="text" id="searchField" placeholder="Search properties..." class="search-input">
+        <table id="property-table" class="shadcn-table">
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">Type <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(1)">Location <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(2)">Price <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(3)">Beds <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(4)">Baths <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(5)">Living Area <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(6)">Lot Area <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(7)">Agent <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(8)">Phone <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
-
-  <!-- Modal for displaying property details -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="modal-close">&times;</span>
-      <div id="modal-details"></div>
-    </div>
-  </div>
 </body>
 </html>

@@ -1,115 +1,185 @@
-const createPropertyListItem = (property) => {
-  const li = document.createElement('li');
-  const button = document.createElement('button');
-  button.className = 'view-details';
-  button.textContent = 'View Details';
-  button.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent triggering any parent click events
-    loadPropertyDetails(property);
-  });
+function prepareTemplate(templateString) {
+  const template = document.createElement('template');
+  template.innerHTML = templateString;
+  return template;
+}
 
-  li.textContent = property.location;
-  li.appendChild(button);
-  return li;
-};
-
-// Load property details into the modal
-const loadPropertyDetails = (property) => {
-  const modalDetails = document.getElementById('modal-details');
-  modalDetails.innerHTML = ''; // Clear previous details
-
-  const url = property.type === 'Single Family' 
-    ? '/fragments/single_family_details.html' 
-    : '/fragments/multi_family_details.html';
-
-  fetch(url)
-    .then(response => response.text())
-    .then(fragment => {
-      modalDetails.innerHTML = fragment;
-
-      // Insert dynamic data into the fragment
-      if (property.type === 'Single Family') {
-        modalDetails.querySelector('p:nth-of-type(1)').innerHTML = `<strong>Location:</strong> ${property.location}`;
-        modalDetails.querySelector('p:nth-of-type(2)').innerHTML = `<strong>Price:</strong> ${property.price}`;
-        modalDetails.querySelector('p:nth-of-type(3)').innerHTML = `<strong>Beds:</strong> ${property.beds}`;
-        modalDetails.querySelector('p:nth-of-type(4)').innerHTML = `<strong>Baths:</strong> ${property.baths}`;
-        modalDetails.querySelector('p:nth-of-type(5)').innerHTML = `<strong>Living Area:</strong> ${property.livingArea}`;
-        modalDetails.querySelector('p:nth-of-type(6)').innerHTML = `<strong>Lot Area:</strong> ${property.lotArea}`;
-        modalDetails.querySelector('p:nth-of-type(7)').innerHTML = `<strong>Name:</strong> ${property.agent.name}`;
-        modalDetails.querySelector('p:nth-of-type(8)').innerHTML = `<strong>Phone:</strong> ${property.agent.phone}`;
-      } else {
-        const unitsHtml = property.units.map(unit => `
-          <div class="unit">
-            <h3>Unit Features</h3>
-            <p><strong>Location:</strong> ${unit.location}</p>
-            <p><strong>Price:</strong> ${unit.price}</p>
-            <p><strong>Beds:</strong> ${unit.beds}</p>
-            <p><strong>Baths:</strong> ${unit.baths}</p>
-            <p><strong>Unit Area:</strong> ${unit.unitArea} sq ft</p>
-          </div>
-        `).join('');
-        modalDetails.querySelector('#units-container').innerHTML = unitsHtml;
-        modalDetails.querySelector('#total-living-area').textContent = property.totalLivingArea;
-        modalDetails.querySelector('#total-beds').textContent = property.totalBeds;
-        modalDetails.querySelector('#total-baths').textContent = property.totalBaths;
-        modalDetails.querySelector('#agent-name').textContent = property.agent.name;
-        modalDetails.querySelector('#agent-phone').textContent = property.agent.phone;
+class JsonObjectElement extends HTMLElement {
+  static template = prepareTemplate(`
+    <style>
+      :host {
+        display: block;
+        margin-bottom: 1em;
       }
+      .content {
+        border: 1px solid var(--color-accent);
+        padding: 1em;
+        background: var(--color-background-page);
+        color: var(--color-text-default);
+      }
+    </style>
+    <div class="content">
+      Loading...
+    </div>
+  `);
 
-      showModal();
-    })
-    .catch(error => {
-      console.error('Error loading property details:', error);
-    });
-};
-
-const showModal = () => {
-  const modal = document.getElementById('modal');
-  modal.style.display = 'block';
-};
-
-const hideModal = () => {
-  const modal = document.getElementById('modal');
-  modal.style.display = 'none';
-};
-
-// Toggle the visibility of the address list
-const toggleList = (listId) => {
-  const list = document.getElementById(listId);
-  const arrow = document.querySelector(`h2[onclick="toggleList('${listId}')"] .arrow`);
-  if (list.style.display === 'none' || list.style.display === '') {
-    list.style.display = 'block';
-    arrow.innerHTML = '&#9660;'; // Down arrow
-  } else {
-    list.style.display = 'none';
-    arrow.innerHTML = '&#9654;'; // Right arrow
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(JsonObjectElement.template.content.cloneNode(true));
+    console.log('Shadow DOM attached:', shadowRoot);
   }
-};
 
-window.onclick = function(event) {
-  const modal = document.getElementById('modal');
-  if (event.target === modal) {
-    hideModal();
+  async connectedCallback() {
+    const src = this.getAttribute("src");
+    if (src) {
+      try {
+        const response = await fetch(src);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Data fetched:', data);
+        this.renderContent(data);
+      } catch (err) {
+        this.renderError(err);
+      }
+    }
   }
-};
 
-document.getElementById('modal-close').onclick = function() {
-  hideModal();
-};
+  renderContent(data) {
+    const shadowRoot = this.shadowRoot;
+    const content = shadowRoot.querySelector(".content");
+    if (content) {
+      if (data.property.type === 'Single Family') {
+        content.innerHTML = `
+          <h2>${data.property.type} Home Details</h2>
+          <p><strong>Location:</strong> ${data.property.features.location}</p>
+          <p><strong>Price:</strong> ${data.property.features.price}</p>
+          <p><strong>Beds:</strong> ${data.property.features.numberOfBeds}</p>
+          <p><strong>Baths:</strong> ${data.property.features.numberOfBaths}</p>
+          <p><strong>Living Area:</strong> ${data.property.features.area.totalLivingArea}</p>
+          <p><strong>Lot Area:</strong> ${data.property.features.area.totalLotArea}</p>
+          <h3>Agent Info</h3>
+          <p><strong>Name:</strong> ${data.listedBy.name}</p>
+          <p><strong>Phone:</strong> ${data.listedBy.phoneNumber}</p>
+        `;
+      } else if (data.property.type === 'Multi-Family') {
+        // Trim everything after and including the "-" character for multi-family properties
+        const trimmedLocation = data.property.address.split('-')[0].trim();
+
+        content.innerHTML = `
+          <h2>${data.property.type} Home Details</h2>
+          <p><strong>Location:</strong> ${trimmedLocation}</p>
+          <p><strong>Total Beds:</strong> ${data.property.features.totalNumberOfBeds}</p>
+          <p><strong>Total Baths:</strong> ${data.property.features.totalNumberOfBaths}</p>
+          <p><strong>Total Living Area:</strong> ${data.property.features.totalLivingArea}</p>
+          <h3>Agent Info</h3>
+          <p><strong>Name:</strong> ${data.listedBy.name}</p>
+          <p><strong>Phone:</strong> ${data.listedBy.phoneNumber}</p>
+        `;
+      }
+    } else {
+      console.error('Content element not found in shadow DOM.');
+    }
+  }
+
+  renderError(err) {
+    const shadowRoot = this.shadowRoot;
+    const content = shadowRoot.querySelector(".content");
+    if (content) {
+      console.error('Error loading content:', err);
+      content.innerHTML = `
+        <p>Error loading content: ${err.message}</p>
+      `;
+    } else {
+      console.error('Content element not found in shadow DOM.');
+    }
+  }
+}
+
+customElements.define("json-object", JsonObjectElement);
 
 // Fetch properties data and populate property lists
-fetch('/mockup/data.json')
+fetch('/api/profiles')
   .then(response => response.json())
   .then(properties => {
-    const singleFamilyList = document.getElementById('single-family-list');
-    const multiFamilyList = document.getElementById('multi-family-list');
+    const tableBody = document.querySelector('#property-table tbody');
+    tableBody.innerHTML = ''; // Clear existing rows
 
     properties.forEach(property => {
-      if (property.type === 'Single Family') {
-        singleFamilyList.appendChild(createPropertyListItem(property));
-      } else if (property.type === 'Multi-Family') {
-        multiFamilyList.appendChild(createPropertyListItem(property));
+      const row = document.createElement('tr');
+      if (property.property.type === 'Single Family') {
+        row.innerHTML = `
+          <td>${property.property.type}</td>
+          <td>${property.property.features.location}</td>
+          <td>${property.property.features.price}</td>
+          <td>${property.property.features.numberOfBeds}</td>
+          <td>${property.property.features.numberOfBaths}</td>
+          <td>${property.property.features.area.totalLivingArea}</td>
+          <td>${property.property.features.area.totalLotArea}</td>
+          <td>${property.listedBy.name}</td>
+          <td>${property.listedBy.phoneNumber}</td>
+        `;
+      } else if (property.property.type === 'Multi-Family') {
+        row.innerHTML = `
+          <td>${property.property.type}</td>
+          <td>${property.property.features.address}</td>
+          <td>${property.property.features.totalPrice}</td>
+          <td>${property.property.features.totalNumberOfBeds}</td>
+          <td>${property.property.features.totalNumberOfBaths}</td>
+          <td>${property.property.features.totalLivingArea}</td>
+          <td>${property.property.features.totalLotArea}</td>
+          <td>${property.listedBy.name}</td>
+          <td>${property.listedBy.phoneNumber}</td>
+        `;
       }
+      tableBody.appendChild(row);
+    });
+
+    // Add sorting functionality
+    const table = document.getElementById("property-table");
+    if (table) {
+      const tBody = table.tBodies[0];
+      const rows = Array.from(tBody.rows);
+      const headerCells = table.tHead.rows[0].cells;
+
+      for (const th of headerCells) {
+        const cellIndex = th.cellIndex;
+        th.addEventListener("click", () => {
+          const dir = th.classList.contains('sort-asc') ? 'desc' : 'asc';
+          rows.sort((tr1, tr2) => {
+            const tr1Text = tr1.cells[cellIndex].textContent;
+            const tr2Text = tr2.cells[cellIndex].textContent;
+            return dir === 'asc' ? tr1Text.localeCompare(tr2Text) : tr2Text.localeCompare(tr1Text);
+          });
+          tBody.append(...rows);
+
+          // Update sort arrow classes
+          for (const th of headerCells) {
+            th.classList.remove('sort-asc', 'sort-desc');
+          }
+          th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+        });
+      }
+    }
+
+    // Add filtering functionality
+    document.getElementById('searchField').addEventListener('keyup', function() {
+      const filter = this.value.trim().toLowerCase();
+      const rows = document.querySelectorAll('#property-table tbody tr');
+      rows.forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        let match = false;
+        for (let i = 0; i < cells.length; i++) {
+          const cellText = cells[i].innerText.trim().toLowerCase();
+          if (cellText.includes(filter)) {
+            match = true;
+            break;
+          }
+        }
+        row.style.display = match ? '' : 'none';
+      });
     });
   })
   .catch(error => {
