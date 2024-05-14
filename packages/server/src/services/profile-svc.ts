@@ -1,4 +1,3 @@
-// src/services/profile-svc.ts
 import { Schema, model } from "mongoose";
 import { Profile, Agent, Area, SingleFamilyFeatures, UnitFeatures, MultiFamilyFeatures, Property } from "../models/profile";
 
