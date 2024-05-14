@@ -1,3 +1,5 @@
+// modal-units.js
+
 // Function to show the units modal for a multi-family property
 function showUnitsModal(propertyId) {
   fetch(`/api/profiles/${propertyId}`)
@@ -38,6 +40,3 @@ function showUnitsModal(propertyId) {
       console.error('Error fetching property units data:', error);
     });
 }
-
-// Make the function available globally
-window.showUnitsModal = showUnitsModal;

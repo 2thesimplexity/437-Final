@@ -1,7 +1,6 @@
 // modal-form.js
 
-// Function to show the edit form in a modal
-export function showEditForm(propertyId) {
+function showEditForm(propertyId) {
     fetch(`/api/profiles/${propertyId}`)
       .then(response => response.json())
       .then(data => {
@@ -75,7 +74,7 @@ export function showEditForm(propertyId) {
               totalNumberOfBaths: parseInt(formData.get('baths')),
               totalLivingArea: formData.get('livingArea'),
               totalLotArea: formData.get('lotArea'),
-              units: data.property.features.units // Make sure to keep the units array
+              units: data.property.features.units // Preserve the units array
             };
           }
   
@@ -103,7 +102,4 @@ export function showEditForm(propertyId) {
         console.error('Error fetching property data for edit:', error);
       });
   }
-  
-  // Make the function available globally
-  window.showEditForm = showEditForm;
   
