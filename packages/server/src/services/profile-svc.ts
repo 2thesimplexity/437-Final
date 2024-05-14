@@ -1,3 +1,4 @@
+// src/services/profile-svc.ts
 import { Schema, model } from "mongoose";
 import { Profile, Agent, Area, SingleFamilyFeatures, UnitFeatures, MultiFamilyFeatures, Property } from "../models/profile";
 
@@ -67,4 +68,17 @@ export function create(profile: Profile): Promise<Profile> {
   return p.save();
 }
 
-export default { index, get, getByAgentName, create };
+function update(id: string, profile: Profile): Promise<Profile> {
+  return ProfileModel.findOne({ id })
+    .then((found) => {
+      if (!found) throw `${id} Not Found`;
+      else return ProfileModel.findByIdAndUpdate(found._id, profile, { new: true });
+    })
+    .then((updated) => {
+      if (!updated) throw `${id} not updated`;
+      else return updated as Profile;
+    });
+}
+
+
+export default { index, get, getByAgentName, create, update };

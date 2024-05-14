@@ -54,6 +54,11 @@ router.get("/agent/:name", (req, res) => {
     }
   }).catch((err) => res.status(500).send(err));
 });
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const newProfile = req.body;
+  import_profile_svc.default.update(id, newProfile).then((profile) => res.json(profile)).catch((err) => res.status(404).send(err));
+});
 router.post("/", (req, res) => {
   const newProfile = req.body;
   import_profile_svc.default.create(newProfile).then((profile) => res.status(201).send(profile)).catch((err) => res.status(500).send(err));

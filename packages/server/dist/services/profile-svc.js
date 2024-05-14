@@ -80,7 +80,16 @@ function create(profile) {
   const p = new ProfileModel(profile);
   return p.save();
 }
-var profile_svc_default = { index, get, getByAgentName, create };
+function update(id, profile) {
+  return ProfileModel.findOne({ id }).then((found) => {
+    if (!found) throw `${id} Not Found`;
+    else return ProfileModel.findByIdAndUpdate(found._id, profile, { new: true });
+  }).then((updated) => {
+    if (!updated) throw `${id} not updated`;
+    else return updated;
+  });
+}
+var profile_svc_default = { index, get, getByAgentName, create, update };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   create,

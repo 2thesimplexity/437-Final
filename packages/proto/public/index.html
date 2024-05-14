@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="/styles/page.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/table.css" />
-  <script src="/scripts/properties.js" defer></script>
+  <script type="module" src="/scripts/custom-element.js" defer></script>
+  <script src="/scripts/modal-form.js" defer></script>
+  <script src="/scripts/table-handler.js" defer></script>
+  <script src="/scripts/modal-units.js" defer></script> <!-- Ensure this script is loaded -->
   <script src="/scripts/darkmode.js" defer></script>
   <title>Real Estate Listings</title>
 </head>
@@ -38,6 +41,7 @@
               <th onclick="sortTable(6)">Lot Area <span class="sort-arrow"></span></th>
               <th onclick="sortTable(7)">Agent <span class="sort-arrow"></span></th>
               <th onclick="sortTable(8)">Phone <span class="sort-arrow"></span></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -46,5 +50,21 @@
       </div>
     </section>
   </main>
+
+  <!-- Modal for editing property details -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="edit-modal-close">&times;</span>
+      <div id="edit-form-container"></div>
+    </div>
+  </div>
+
+  <!-- Modal for viewing units -->
+  <div id="units-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="units-modal-close">&times;</span>
+      <div id="units-container"></div>
+    </div>
+  </div>
 </body>
 </html>
