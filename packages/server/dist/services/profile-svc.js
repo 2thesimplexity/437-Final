@@ -18,73 +18,73 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var profile_svc_exports = {};
 __export(profile_svc_exports, {
+  create: () => create,
   default: () => profile_svc_default,
   get: () => get,
-  getByAgentName: () => getByAgentName
+  getByAgentName: () => getByAgentName,
+  index: () => index
 });
 module.exports = __toCommonJS(profile_svc_exports);
-let profiles = [
-  {
-    id: "property1",
-    listedBy: {
-      name: "Bruce Wayne",
-      phoneNumber: "123-456-7890"
-    },
-    property: {
-      type: "Single Family",
-      features: {
-        location: "123 Main St, Springfield, USA",
-        price: "$500,000",
-        numberOfBeds: 4,
-        numberOfBaths: 3,
-        area: {
-          totalLivingArea: "2500 sq ft",
-          totalLotArea: "6000 sq ft"
-        }
-      }
-    }
-  },
-  {
-    id: "property2",
-    listedBy: {
-      name: "Batman",
-      phoneNumber: "987-654-3210"
-    },
-    property: {
-      type: "Multi-Family",
-      features: {
-        units: [
-          {
-            location: "Unit 1",
-            price: "$300,000",
-            numberOfBeds: 2,
-            numberOfBaths: 1,
-            unitArea: "1000 sq ft"
-          },
-          {
-            location: "Unit 2",
-            price: "$350,000",
-            numberOfBeds: 3,
-            numberOfBaths: 2,
-            unitArea: "1200 sq ft"
-          }
-        ],
-        totalLivingArea: "2200 sq ft",
-        totalNumberOfBeds: 5,
-        totalNumberOfBaths: 3
-      }
-    }
+var import_mongoose = require("mongoose");
+const AgentSchema = new import_mongoose.Schema({
+  name: { type: String, required: true },
+  phoneNumber: { type: String, required: true }
+});
+const AreaSchema = new import_mongoose.Schema({
+  totalLivingArea: { type: String, required: true },
+  totalLotArea: { type: String, required: true }
+});
+const SingleFamilyFeaturesSchema = new import_mongoose.Schema({
+  location: { type: String, required: true },
+  price: { type: String, required: true },
+  numberOfBeds: { type: Number, required: true },
+  numberOfBaths: { type: Number, required: true },
+  area: { type: AreaSchema, required: true }
+});
+const UnitFeaturesSchema = new import_mongoose.Schema({
+  location: { type: String, required: true },
+  price: { type: String, required: true },
+  numberOfBeds: { type: Number, required: true },
+  numberOfBaths: { type: Number, required: true },
+  unitArea: { type: String, required: true }
+});
+const MultiFamilyFeaturesSchema = new import_mongoose.Schema({
+  units: { type: [UnitFeaturesSchema], required: true },
+  totalLivingArea: { type: String, required: true },
+  totalNumberOfBeds: { type: Number, required: true },
+  totalNumberOfBaths: { type: Number, required: true }
+});
+const PropertySchema = new import_mongoose.Schema({
+  type: { type: String, required: true },
+  features: {
+    type: import_mongoose.Schema.Types.Mixed,
+    required: true
   }
-];
+});
+const ProfileSchema = new import_mongoose.Schema({
+  id: { type: String, required: true },
+  listedBy: { type: AgentSchema, required: true },
+  property: { type: PropertySchema, required: true }
+});
+const ProfileModel = (0, import_mongoose.model)("Profile", ProfileSchema);
+function index() {
+  return ProfileModel.find().exec();
+}
 function get(id) {
-  return profiles.find((profile) => profile.id === id);
+  return ProfileModel.findOne({ id }).exec();
 }
 function getByAgentName(name) {
-  return profiles.filter((profile) => profile.listedBy.name === name);
+  return ProfileModel.find({ "listedBy.name": name }).exec();
 }
-var profile_svc_default = { get, getByAgentName };
+function create(profile) {
+  const p = new ProfileModel(profile);
+  return p.save();
+}
+var profile_svc_default = { index, get, getByAgentName, create };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  create,
   get,
-  getByAgentName
+  getByAgentName,
+  index
 });

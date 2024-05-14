@@ -1,28 +1,53 @@
 import express, { Request, Response } from "express";
 import profiles from "../services/profile-svc";
+import { Profile } from "../models/profile";
 
 const router = express.Router();
 
 router.get("/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;
-  const profile = profiles.get(userid);
 
-  if (profile) {
-    res.send(profile);
-  } else {
-    res.status(404).end();
-  }
+  profiles
+    .get(userid)
+    .then((profile: Profile | null) => {
+      if (profile) {
+        res.json(profile);
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => res.status(500).send(err));
 });
 
 router.get("/agent/:name", (req: Request, res: Response) => {
   const { name } = req.params;
-  const profileList = profiles.getByAgentName(name);
 
-  if (profileList.length > 0) {
-    res.send(profileList);
-  } else {
-    res.status(404).end();
-  }
+  profiles
+    .getByAgentName(name)
+    .then((profileList: Profile[]) => {
+      if (profileList.length > 0) {
+        res.json(profileList);
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+});
+
+router.post("/", (req: Request, res: Response) => {
+  const newProfile = req.body;
+
+  profiles
+    .create(newProfile)
+    .then((profile: Profile) => res.status(201).send(profile))
+    .catch((err) => res.status(500).send(err));
+});
+
+router.get("/", (req: Request, res: Response) => {
+  profiles
+    .index()
+    .then((list: Profile[]) => res.json(list))
+    .catch((err) => res.status(500).send(err));
 });
 
 export default router;

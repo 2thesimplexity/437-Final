@@ -22,10 +22,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var import_express = __toESM(require("express"));
+var import_mongo = require("./services/mongo");
 var import_profiles = __toESM(require("./routes/profiles"));
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
+(0, import_mongo.connect)("realestate");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
 app.get("/hello", (req, res) => {
