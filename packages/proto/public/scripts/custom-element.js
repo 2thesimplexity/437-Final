@@ -1,3 +1,6 @@
+/*
+custom-element.json using json-object is replaced with property-viewer.js
+
 function prepareTemplate(templateString) {
   const template = document.createElement('template');
   template.innerHTML = templateString;
@@ -98,3 +101,4 @@ class JsonObjectElement extends HTMLElement {
 }
 
 customElements.define("json-object", JsonObjectElement);
+*/
