@@ -1,5 +1,3 @@
-// table-handler.js
-
 // Function to fetch and display properties in the table
 function fetchAndDisplayProperties() {
     fetch('/api/profiles')

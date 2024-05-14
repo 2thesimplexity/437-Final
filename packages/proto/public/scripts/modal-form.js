@@ -1,5 +1,3 @@
-// modal-form.js
-
 function showEditForm(propertyId) {
     fetch(`/api/profiles/${propertyId}`)
       .then(response => response.json())

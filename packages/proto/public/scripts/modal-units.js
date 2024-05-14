@@ -1,5 +1,3 @@
-// modal-units.js
-
 // Function to show the units modal for a multi-family property
 function showUnitsModal(propertyId) {
   fetch(`/api/profiles/${propertyId}`)

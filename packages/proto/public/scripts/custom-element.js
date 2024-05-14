@@ -1,4 +1,3 @@
-// custom-element.js
 function prepareTemplate(templateString) {
   const template = document.createElement('template');
   template.innerHTML = templateString;
