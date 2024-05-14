@@ -26,9 +26,12 @@ export interface Agent {
   
   export interface MultiFamilyFeatures {
     units: UnitFeatures[];
+    address: string
     totalLivingArea: string;
+    totalLotArea: string;
     totalNumberOfBeds: number;
     totalNumberOfBaths: number;
+
   }
   
   export interface Property {

@@ -31,7 +31,7 @@ const MultiFamilyFeaturesSchema = new Schema<MultiFamilyFeatures>({
   units: { type: [UnitFeaturesSchema], required: true },
   totalLivingArea: { type: String, required: true },
   totalNumberOfBeds: { type: Number, required: true },
-  totalNumberOfBaths: { type: Number, required: true }
+  totalNumberOfBaths: { type: Number, required: true },
 });
 
 const PropertySchema = new Schema<Property>({
