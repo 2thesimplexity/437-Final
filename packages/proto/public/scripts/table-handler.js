@@ -49,8 +49,6 @@ function fetchAndDisplayProperties() {
         }
         tableBody.appendChild(row);
       });
-
-      // Add sorting and filtering functionality
       addTableSorting();
       addTableFiltering();
     })
