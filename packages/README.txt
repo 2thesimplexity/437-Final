@@ -16,3 +16,4 @@ password123
 
 Note: I ran into many issues with @calpoly/mustang, so I resort to using passport.js to handle jwt and auth
 
+The app is deployed on https://ttran258.unbundled.dev/
