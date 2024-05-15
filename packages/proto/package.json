@@ -3,10 +3,22 @@
     "version": "1.0.0",
     "main": "public/index.html",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "express-session": "^1.18.0",
         "faker": "^5.5.3",
-        "http-server": "^14.1.1"
+        "http-server": "^14.1.1",
+        "passport": "^0.7.0",
+        "passport-local": "^1.0.0"
     },
     "scripts": {
         "start": "http-server"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "@types/connect-flash": "^0.0.40",
+        "@types/express-session": "^1.18.0",
+        "@types/passport": "^1.0.16",
+        "@types/passport-local": "^1.0.38"
     }
 }

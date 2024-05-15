@@ -1,6 +1,16 @@
 // Function to show the units modal for a multi-family property
 function showUnitsModal(propertyId) {
-  fetch(`/api/profiles/${propertyId}`)
+  const token = localStorage.getItem('token');
+  if (!token) {
+    window.location.href = '/login.html';
+    return;
+  }
+
+  fetch(`/api/profiles/${propertyId}`, {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
     .then(response => response.json())
     .then(data => {
       const modal = document.getElementById('units-modal');

@@ -31,11 +31,12 @@ const staticDir = process.env.STATIC || "public";
 (0, import_mongo.connect)("realestate");
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
-app.use("/auth", import_auth.default);
-app.use("/api/profiles", import_auth.authenticateUser, import_profiles.default);
+app.use(require("connect-flash")());
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });
+app.use("/api/profiles", import_auth.authenticateUser, import_profiles.default);
+app.use("/auth", import_auth.default);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

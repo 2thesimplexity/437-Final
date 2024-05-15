@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <title>Login</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">🏡</div>
+      <div class="app-name">Real Estate Listings</div>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="content">
+      <h1>Login</h1>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="/register.html">Register here</a></p>
+    </section>
+  </main>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {
+        username: formData.get('username'),
+        password: formData.get('password')
+      };
+      
+      try {
+        const response = await fetch('/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+          throw new Error('Login failed');
+        }
+        const result = await response.json();
+        localStorage.setItem('token', result.token);
+        const nextUrl = new URLSearchParams(window.location.search).get('next') || '/';
+        window.location.href = nextUrl;
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Login failed. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

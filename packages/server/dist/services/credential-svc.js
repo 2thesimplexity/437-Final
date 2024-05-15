@@ -35,8 +35,15 @@ var import_bcryptjs = __toESM(require("bcryptjs"));
 var import_mongoose = require("mongoose");
 const credentialSchema = new import_mongoose.Schema(
   {
-    username: { type: String, required: true, trim: true },
-    hashedPassword: { type: String, required: true }
+    username: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    hashedPassword: {
+      type: String,
+      required: true
+    }
   },
   { collection: "user_credentials" }
 );
@@ -48,31 +55,37 @@ function create(username, password) {
     }
     credentialModel.find({ username }).then((found) => {
       if (found.length) reject("username exists");
-      import_bcryptjs.default.genSalt(10).then(
-        (salt) => import_bcryptjs.default.hash(password, salt).then((hashedPassword) => {
-          const creds = new credentialModel({ username, hashedPassword });
-          creds.save().then((created) => {
-            if (created) resolve(created);
-          });
-        })
-      );
-    });
+    }).then(
+      () => import_bcryptjs.default.genSalt(10).then((salt) => import_bcryptjs.default.hash(password, salt)).then((hashedPassword) => {
+        const creds = new credentialModel({
+          username,
+          hashedPassword
+        });
+        creds.save().then((created) => {
+          if (created) resolve(created);
+        });
+      })
+    );
   });
 }
 function verify(username, password) {
   return new Promise((resolve, reject) => {
-    credentialModel.find({ username }).then((found) => {
-      if (found && found.length === 1) return found[0];
-      else reject("Invalid username or password");
-    }).then((credsOnFile) => {
-      if (credsOnFile)
-        import_bcryptjs.default.compare(password, credsOnFile.hashedPassword, (_, result) => {
-          console.log("Verified", result, credsOnFile.username);
-          if (result) resolve(credsOnFile.username);
-          else reject("Invalid username or password");
-        });
-      else reject("Invalid username or password");
-    });
+    credentialModel.findOne({ username }).then((credsOnFile) => {
+      if (!credsOnFile) {
+        return reject("Invalid username or password");
+      }
+      import_bcryptjs.default.compare(
+        password,
+        credsOnFile.hashedPassword,
+        (error, result) => {
+          if (result) {
+            resolve(credsOnFile.username);
+          } else {
+            reject("Invalid username or password");
+          }
+        }
+      );
+    }).catch((err) => reject(err));
   });
 }
 var credential_svc_default = { create, verify };
