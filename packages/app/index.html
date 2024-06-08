@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <title>Real Estate Listings</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <mu-history provides="blazing:history">
+    <mu-auth provides="blazing:auth" redirect="/login.html">
+      <mu-store provides="blazing:model">
+        <article class="page">
+          <app-header></app-header>
+          <mu-switch></mu-switch>
+        </article>
+      </mu-store>
+    </mu-auth>
+  </mu-history>
+</body>
+</html>
+
+
+

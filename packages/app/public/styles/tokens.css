@@ -1,0 +1,32 @@
+:root {
+  --color-background-page: #f0f0f0;
+  --color-background-header: #009879;
+  --color-text-default: #333333;
+  --color-text-header: #ffffff;
+  --color-accent: #ff5722;
+  --color-heading: #007BFF;
+  --color-modal-background: #ffffff;
+  --color-modal-text: #333333;
+
+  --font-family-body: 'Roboto', sans-serif;
+  --font-family-header: 'Open Sans', sans-serif;
+
+  --size-type-body: 1rem;
+  --size-type-header: 2rem;
+  --size-type-subheader: 1.5rem;
+
+  --spacing-small: 0.5em;
+  --spacing-medium: 1em;
+  --spacing-large: 2em;
+}
+
+body.dark-mode {
+  --color-background-page: #1a1a1a;
+  --color-background-header: #333333;
+  --color-text-default: #e0e0e0;
+  --color-text-header: #ffcc00;
+  --color-accent: #ff4081;
+  --color-heading: #007BFF;
+  --color-modal-background: #2a2a2a;
+  --color-modal-text: #f0f0f0;
+}
